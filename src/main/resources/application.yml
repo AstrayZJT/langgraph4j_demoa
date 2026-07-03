@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: langgraph4j-demo
+
+logging:
+  level:
+    root: info
