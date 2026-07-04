@@ -1,4 +1,4 @@
-package com.example.langgraph4jdemo;
+package com.example.langgraph4jdemo.minimal;
 
 import org.bsc.langgraph4j.action.NodeAction;
 import org.springframework.stereotype.Component;

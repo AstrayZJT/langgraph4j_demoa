@@ -1,4 +1,4 @@
-package com.example.langgraph4jdemo;
+package com.example.langgraph4jdemo.minimal;
 
 import jakarta.annotation.PostConstruct;
 import org.bsc.langgraph4j.GraphStateException;

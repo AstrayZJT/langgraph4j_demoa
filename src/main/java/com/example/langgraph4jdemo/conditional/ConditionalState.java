@@ -1,4 +1,4 @@
-package com.example.langgraph4jdemo;
+package com.example.langgraph4jdemo.conditional;
 
 import org.bsc.langgraph4j.state.AgentState;
 import org.bsc.langgraph4j.state.Channel;

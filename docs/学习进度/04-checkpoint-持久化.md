@@ -8,10 +8,10 @@
 
 ## 1. 这一节对应哪些代码
 
-- [CheckpointState.java](../../src/main/java/com/example/langgraph4jdemo/CheckpointState.java)
-- [CheckpointService.java](../../src/main/java/com/example/langgraph4jdemo/CheckpointService.java)
-- [DraftNode.java](../../src/main/java/com/example/langgraph4jdemo/DraftNode.java)
-- [ReviewNode.java](../../src/main/java/com/example/langgraph4jdemo/ReviewNode.java)
+- [CheckpointState.java](../../src/main/java/com/example/langgraph4jdemo/checkpoint/CheckpointState.java)
+- [CheckpointService.java](../../src/main/java/com/example/langgraph4jdemo/checkpoint/CheckpointService.java)
+- [DraftNode.java](../../src/main/java/com/example/langgraph4jdemo/checkpoint/DraftNode.java)
+- [ReviewNode.java](../../src/main/java/com/example/langgraph4jdemo/checkpoint/ReviewNode.java)
 
 ---
 
@@ -51,7 +51,7 @@ START -> draft -> review -> END
 
 ## 4. State 里多了什么
 
-[`CheckpointState`](../../src/main/java/com/example/langgraph4jdemo/CheckpointState.java) 里有三个字段：
+[`CheckpointState`](../../src/main/java/com/example/langgraph4jdemo/checkpoint/CheckpointState.java) 里有三个字段：
 
 ```java
 public static final String TOPIC_KEY = "topic";
@@ -75,7 +75,7 @@ public static final String MESSAGES_KEY = "messages";
 
 ## 5. 图是怎么建的
 
-核心代码在 [`CheckpointService`](../../src/main/java/com/example/langgraph4jdemo/CheckpointService.java)：
+核心代码在 [`CheckpointService`](../../src/main/java/com/example/langgraph4jdemo/checkpoint/CheckpointService.java)：
 
 ```java
 var stateGraph = new StateGraph<>(CheckpointState.SCHEMA, CheckpointState::new)
@@ -225,7 +225,55 @@ compiledGraph.stream(GraphInput.resume(), snapshot.config())
 
 ---
 
-## 12. 怎么验证这一步成功
+## 12. checkpoint、snapshot、resume、retry 的区别
+
+这几个词很容易混，我单独拆一下：
+
+### checkpoint
+
+checkpoint 是“存档点”。
+
+它记录的是图执行到某一步时的状态和位置。
+
+### snapshot
+
+snapshot 是“快照”。
+
+它是你从 checkpoint 里读出来的那一刻的状态视图，所以你能看到：
+
+- 当前 state
+- 当前停在哪个节点
+- 下一步该去哪
+
+### resume
+
+resume 是“从存档继续跑”。
+
+你这版示例里恢复时用的是：
+
+```java
+compiledGraph.stream(GraphInput.resume(), snapshot.config())
+```
+
+它表示：
+
+- 不重新开始
+- 直接从暂停点继续执行
+
+### retry
+
+retry 是“失败后再试一次”。
+
+这跟 resume 不是一回事。
+
+- resume：流程没失败，只是暂停了
+- retry：某一步失败了，再走一遍或者重试那一步
+
+你现在这个示例验证的是 resume，不是 retry。
+
+---
+
+## 13. 怎么验证这一步成功
 
 你在控制台里应该看到：
 
@@ -243,7 +291,7 @@ compiledGraph.stream(GraphInput.resume(), snapshot.config())
 
 ---
 
-## 13. 这一节学完后你应该明白什么
+## 14. 这一节学完后你应该明白什么
 
 你应该真正理解这些事：
 
@@ -255,7 +303,7 @@ compiledGraph.stream(GraphInput.resume(), snapshot.config())
 
 ---
 
-## 14. 下一步学什么
+## 15. 下一步学什么
 
 下一节学 `和 LangChain4j 结合`。
 
