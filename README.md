@@ -2,28 +2,26 @@
 
 这是一个从零开始的 Spring Boot 学习项目，主题是 LangGraph4j。
 
-当前阶段：`v0.2.0`
+## 当前阶段
 
-## 目前做到哪里
-
-- `v0.1.0` 项目初始化
 - `v0.2.0` LangGraph4j 最小图：`state` / `node` / `edge`
 
-## 学习路线
+## 现在做到哪里
 
-请看 [docs/学习路线.md](./docs/学习路线.md)
+- `v0.1.0` 项目初始化
+- `v0.2.0` 跑通最小图
 
-## 版本记录
+## 学习进度
 
-请看 [docs/版本记录](./docs/版本记录)
+- [LangGraph4j 学习进度清单](./docs/学习进度/README.md)
 
 ## 教材文档
 
-请看 [docs/LangGraph4j教材](./docs/LangGraph4j教材)
+- [LangGraph4j 教材目录](./docs/LangGraph4j教材/README.md)
 
 ## 快速教程
 
-- [第一个可运行示例：最小图教程](./docs/LangGraph4j教材/09-第一个可运行示例-最小图教程.md)
+- [第一个可运行示例：最小图教程](./docs/学习进度/01-第一个可运行示例-最小图教程.md)
 - [在 IDEA 里如何运行和验证](./docs/LangGraph4j教材/10-在IDEA里如何运行和验证.md)
 
 ## 运行
