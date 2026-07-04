@@ -15,11 +15,13 @@ public class LangGraph4jDemoApplication {
     @Bean
     ApplicationRunner graphRunner(SimpleGraphService simpleGraphService,
                                  ConditionalBranchService conditionalBranchService,
-                                 LoopService loopService) {
+                                 LoopService loopService,
+                                 CheckpointService checkpointService) {
         return args -> {
             simpleGraphService.runOnce();
             conditionalBranchService.runDemo();
             loopService.runDemo();
+            checkpointService.runDemo();
         };
     }
 }
