@@ -13,7 +13,11 @@ public class LangGraph4jDemoApplication {
     }
 
     @Bean
-    ApplicationRunner graphRunner(SimpleGraphService simpleGraphService) {
-        return args -> simpleGraphService.runOnce();
+    ApplicationRunner graphRunner(SimpleGraphService simpleGraphService,
+                                 ConditionalBranchService conditionalBranchService) {
+        return args -> {
+            simpleGraphService.runOnce();
+            conditionalBranchService.runDemo();
+        };
     }
 }
