@@ -3,6 +3,7 @@ package com.example.langgraph4jdemo;
 import com.example.langgraph4jdemo.checkpoint.CheckpointService;
 import com.example.langgraph4jdemo.conditional.ConditionalBranchService;
 import com.example.langgraph4jdemo.loop.LoopService;
+import com.example.langgraph4jdemo.langchain.LangChainBridgeService;
 import com.example.langgraph4jdemo.minimal.SimpleGraphService;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
@@ -20,12 +21,14 @@ public class LangGraph4jDemoApplication {
     ApplicationRunner graphRunner(SimpleGraphService simpleGraphService,
                                  ConditionalBranchService conditionalBranchService,
                                  LoopService loopService,
-                                 CheckpointService checkpointService) {
+                                 CheckpointService checkpointService,
+                                 LangChainBridgeService langChainBridgeService) {
         return args -> {
             simpleGraphService.runOnce();
             conditionalBranchService.runDemo();
             loopService.runDemo();
             checkpointService.runDemo();
+            langChainBridgeService.runDemo();
         };
     }
 }
