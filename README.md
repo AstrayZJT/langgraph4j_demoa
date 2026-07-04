@@ -17,6 +17,15 @@
 
 请看 [docs/版本记录](./docs/版本记录)
 
+## 教材文档
+
+请看 [docs/LangGraph4j教材](./docs/LangGraph4j教材)
+
+## 快速教程
+
+- [第一个可运行示例：最小图教程](./docs/LangGraph4j教材/09-第一个可运行示例-最小图教程.md)
+- [在 IDEA 里如何运行和验证](./docs/LangGraph4j教材/10-在IDEA里如何运行和验证.md)
+
 ## 运行
 
 ```bash
